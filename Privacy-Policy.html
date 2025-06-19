@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | Naraway</title>
+  <meta name="description" content="Understand how Naraway Solutions collects, uses, and protects your personal information. Read our comprehensive privacy policy.">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="last-modified" content="2025-06-09">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://www.naraway.com/Privacy-Policy">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #059669;
+      --primary-light: #10b981;
+      --primary-dark: #047857;
+      --text-primary: #1f2937;
+      --text-secondary: #6b7280;
+      --text-muted: #9ca3af;
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --border-color: #e5e7eb;
+      --success-color: #10b981;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--bg-primary);
+      border-radius: 16px;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+      color: white;
+      padding: 3rem 2rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/svg%3E") repeat;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.5px;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      letter-spacing: -1px;
+    }
+
+    .header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+
+    .content {
+      padding: 3rem 2rem;
+    }
+
+    .section {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .section h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-number {
+      background: var(--primary-color);
+      color: white;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .section p {
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .section ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1rem;
+    }
+
+    .section li {
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+      padding: 0.75rem 1rem;
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      border-left: 4px solid var(--primary-color);
+      font-size: 0.95rem;
+    }
+
+    .section li strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, var(--success-color) 0%, var(--primary-color) 100%);
+      color: white;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .privacy-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--bg-secondary);
+      border: 2px solid var(--primary-color);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0;
+      font-weight: 500;
+      color: var(--primary-color);
+    }
+
+    .contact-section {
+      background: linear-gradient(135deg, var(--bg-secondary) 0%, #f1f5f9 100%);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-top: 2rem;
+      text-align: center;
+      border: 1px solid var(--border-color);
+    }
+
+    .contact-section h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--primary-color);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .contact-email:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .data-rights {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-left: 4px solid #f59e0b;
+    }
+
+    .data-rights h4 {
+      color: #92400e;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .data-rights p {
+      color: #78350f;
+      margin-bottom: 0;
+      font-size: 0.9rem;
+    }
+
+    .footer {
+      background: var(--text-primary);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+    }
+
+    .footer p {
+      opacity: 0.8;
+    }
+
+    .last-updated {
+      background: var(--bg-secondary);
+      padding: 1rem 2rem;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem 0.5rem;
+      }
+
+      .header {
+        padding: 2rem 1.5rem 1.5rem;
+      }
+
+      .header h1 {
+        font-size: 2rem;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+      }
+
+      .content {
+        padding: 2rem 1.5rem;
+      }
+
+      .section h2 {
+        font-size: 1.2rem;
+      }
+
+      .contact-section {
+        padding: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header h1 {
+        font-size: 1.75rem;
+      }
+
+      .content {
+        padding: 1.5rem 1rem;
+      }
+
+      .contact-section {
+        padding: 1rem;
+      }
+
+      .contact-email {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+      }
+
+      .section li {
+        padding: 0.5rem 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-content">
+        <div class="logo">Naraway</div>
+        <h1>Privacy Policy</h1>
+        <p>Your privacy is important to us. Learn how we protect your data.</p>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="privacy-badge">
+        <span>🔒</span> We are committed to protecting your privacy and personal information
+      </div>
+
+      <p>This Privacy Policy explains how Naraway Solutions ("we", "our", or "us") collects, uses, protects, and shares your information when you visit our website or use our services.</p>
+
+      <div class="section">
+        <h2><span class="section-number">1</span>Information We Collect</h2>
+        <p>We collect various types of information to provide and improve our services:</p>
+        <ul>
+          <li><strong>Personal Information:</strong> Name, email address, phone number, company details, and other contact information you provide when requesting services or contacting us.</li>
+          <li><strong>Technical Data:</strong> IP address, browser type, device information, operating system, and referral URLs to help us understand how you interact with our website.</li>
+          <li><strong>Usage Data:</strong> Pages visited, time spent on pages, click patterns, session duration, and other interaction data to improve user experience.</li>
+          <li><strong>Communication Data:</strong> Records of correspondence, support tickets, and feedback you provide to us.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2><span class="section-number">2</span>How We Use Your Information</h2>
+        <p>We use your information for the following purposes:</p>
+        <ul>
+          <li><strong>Service Delivery:</strong> To provide, maintain, and improve our IT development, digital marketing, recruitment, and design services.</li>
+          <li><strong>Communication:</strong> To respond to inquiries, provide customer support, and send service-related communications.</li>
+          <li><strong>Platform Improvement:</strong> To analyze usage patterns, identify areas for improvement, and enhance user experience.</li>
+          <li><strong>Marketing:</strong> To send newsletters, promotional materials, and service updates (only with your explicit consent).</li>
+          <li><strong>Legal Compliance:</strong> To comply with applicable laws, regulations, and legal processes.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2><span class="section-number">3</span>Data Sharing and Disclosure</h2>
+        <p>We respect your privacy and do not sell, trade, or rent your personal information to third parties. We may share your data only in the following circumstances:</p>
+        <ul>
+          <li><strong>Service Providers:</strong> With trusted third-party partners who assist in service delivery (hosting, payment processing, analytics) under strict confidentiality agreements.</li>
+          <li><strong>Legal Requirements:</strong> When required by law, court order, or to protect our rights and the safety of others.</li>
+          <li><strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets, with prior notice to affected users.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2><span class="section-number">4</span>Data Security</h2>
+        <p>We implement industry-standard security measures to protect your information:</p>
+        <ul>
+          <li><strong>Encryption:</strong> Data transmission and storage are encrypted using SSL/TLS protocols.</li>
+          <li><strong>Access Control:</strong> Strict access controls ensure only authorized personnel can access personal data.</li>
+          <li><strong>Regular Audits:</strong> We conduct regular security assessments and updates to maintain data protection standards.</li>
+          <li><strong>Secure Infrastructure:</strong> Our servers and databases are hosted in secure, monitored environments.</li>
+        </ul>
+        <p>While we implement robust security measures, no system is completely secure. We cannot guarantee absolute security but continuously work to improve our protection measures.</p>
+      </div>
+
+      <div class="section">
+        <h2><span class="section-number">5</span>Cookies and Tracking</h2>
+        <p>We use cookies and similar technologies to enhance your browsing experience and analyze website usage:</p>
+        <ul>
+          <li><strong>Essential Cookies:</strong> Required for basic website functionality and security.</li>
+          <li><strong>Analytics Cookies:</strong> Help us understand user behavior and improve our services.</li>
+          <li><strong>Preference Cookies:</strong> Remember your settings and preferences for a better experience.</li>
+        </ul>
+        <p>You can manage cookie preferences through your browser settings, though disabling certain cookies may affect website functionality.</p>
+      </div>
+
+      <div class="data-rights">
+        <h4>Your Privacy Rights</h4>
+        <p>You have the right to access, update, or delete your personal information. Contact us to exercise these rights or if you have any privacy concerns.</p>
+      </div>
+
+      <div class="section">
+        <h2><span class="section-number">6</span>Your Rights and Choices</h2>
+        <p>You have several rights regarding your personal information:</p>
+        <ul>
+          <li><strong>Access:</strong> Request a copy of the personal information we hold about you.</li>
+          <li><strong>Correction:</strong> Update or correct any inaccurate or incomplete information.</li>
+          <li><strong>Deletion:</strong> Request deletion of your personal data, subject to legal and business requirements.</li>
+          <li><strong>Portability:</strong> Receive your data in a structured, commonly used format.</li>
+          <li><strong>Opt-out:</strong> Unsubscribe from marketing communications at any time.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2><span class="section-number">7</span>Data Retention</h2>
+        <p>We retain your personal information only as long as necessary to fulfill the purposes outlined in this policy or to comply with legal obligations. Retention periods vary based on:</p>
+        <ul>
+          <li><strong>Service Data:</strong> Retained for the duration of our business relationship and reasonable period thereafter.</li>
+          <li><strong>Communication Records:</strong> Kept for customer service and legal compliance purposes.</li>
+          <li><strong>Marketing Data:</strong> Retained until you opt-out or request deletion.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2><span class="section-number">8</span>Third-Party Links</h2>
+        <p>Our website may contain links to third-party websites and services. We are not responsible for the privacy practices or content of these external sites. We encourage you to review the privacy policies of any third-party sites you visit.</p>
+      </div>
+
+      <div class="section">
+        <h2><span class="section-number">9</span>International Data Transfers</h2>
+        <p>Your information may be transferred to and processed in countries other than your own. We ensure appropriate safeguards are in place to protect your data during international transfers, including:</p>
+        <ul>
+          <li><strong>Adequacy Decisions:</strong> Transfers to countries with adequate data protection levels.</li>
+          <li><strong>Standard Contractual Clauses:</strong> Binding agreements with service providers to ensure data protection.</li>
+          <li><strong>Certification Programs:</strong> Working with certified providers who meet international privacy standards.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2><span class="section-number">10</span>Children's Privacy</h2>
+        <p>Our services are not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If we become aware that we have collected such information, we will take steps to delete it promptly.</p>
+      </div>
+
+      <div class="section">
+        <h2><span class="section-number">11</span>Changes to This Policy</h2>
+        <p>We may update this Privacy Policy periodically to reflect changes in our practices, services, or legal requirements. We will:</p>
+        <ul>
+          <li><strong>Post Updates:</strong> Make revised policies available on this page with an updated effective date.</li>
+          <li><strong>Notify Users:</strong> Provide notice of material changes through email or website notifications.</li>
+          <li><strong>Maintain Access:</strong> Keep previous versions available for reference when requested.</li>
+        </ul>
+        <p>Your continued use of our services after policy updates constitutes acceptance of the revised terms.</p>
+      </div>
+
+      <div class="contact-section">
+        <h3>Privacy Questions or Concerns?</h3>
+        <p>If you have questions about this Privacy Policy or wish to exercise your privacy rights, please contact us:</p>
+        <a href="mailto:aajmarketa@gmail.com" class="contact-email">
+          <span>✉</span> aajmarketa@gmail.com
+        </a>
+        <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">
+          We will respond to your inquiry within 30 days
+        </p>
+      </div>
+    </div>
+
+    <div class="last-updated">
+      <p>Last updated: June 2025 | Effective Date: June 18, 2025</p>
+    </div>
+
+    <div class="footer">
+      <p>&copy; 2025 Naraway Solutions. All rights reserved.</p>
+    </div>
+  </div>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Privacy Policy",
+  "url": "https://www.naraway.com/Privacy-Policy",
+  "description": "This Privacy Policy explains how Naraway Solutions collects, uses, and protects your personal information.",
+  "inLanguage": "en",
+  "dateModified": "2025-06-09",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Naraway Solutions",
+    "url": "https://www.naraway.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.naraway.com/assets/logo.png"
+    }
+  }
+}
+</script>
+
+</body>
+</html>

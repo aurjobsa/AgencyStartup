@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Naraway Solutions | Startup Execution Experts</title>
+    <meta name="description" content="Learn how Naraway Solutions helps founders launch and grow startups with expert-led services across legal, tech, branding, hiring, and more.">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #f59e0b;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light-gray: #f8fafc;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .cta-button:hover {
+            background: #d97706;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+        }
+
+        /* Floating particles animation */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .particle {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) { width: 4px; height: 4px; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 6px; height: 6px; left: 20%; animation-delay: 1s; }
+        .particle:nth-child(3) { width: 3px; height: 3px; left: 30%; animation-delay: 2s; }
+        .particle:nth-child(4) { width: 5px; height: 5px; left: 40%; animation-delay: 3s; }
+        .particle:nth-child(5) { width: 4px; height: 4px; left: 60%; animation-delay: 1.5s; }
+        .particle:nth-child(6) { width: 7px; height: 7px; left: 70%; animation-delay: 2.5s; }
+        .particle:nth-child(7) { width: 3px; height: 3px; left: 80%; animation-delay: 0.5s; }
+        .particle:nth-child(8) { width: 5px; height: 5px; left: 90%; animation-delay: 4s; }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Story Section */
+        .story {
+            background: var(--light-gray);
+        }
+
+        .story-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .story-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .vision-quote {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            margin: 30px 0;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .service-card p {
+            color: var(--gray);
+        }
+
+        /* Why Choose Us */
+        .features {
+            background: var(--dark);
+            color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .feature-item {
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+        }
+
+        .feature-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            color: #94a3b8;
+        }
+
+        /* Founder Section */
+        .founder {
+            background: var(--light-gray);
+        }
+
+        .founder-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .founder-image {
+            text-align: center;
+        }
+
+        .founder-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            margin: 0 auto 20px;
+        }
+
+        .founder-info h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .founder-info .title {
+            color: var(--gray);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .founder-quote {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--dark);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .founder-bg {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .founder-bg h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        /* Client Logos */
+        .clients {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .clients h3 {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 40px;
+        }
+
+        .logos-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .logo-placeholder {
+            width: 120px;
+            height: 60px;
+            background: #e2e8f0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            font-weight: 600;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo-placeholder:hover {
+            opacity: 1;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--light-gray);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-quote {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .founder-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 30px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>We Don't Just Support Startups.<br>We Build Them.</h1>
+                <p>Naraway is your all-in-one startup execution partner — from incorporation to marketing.</p>
+                <a href="#contact" class="cta-button">Start Building with Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Naraway Story -->
+    <section class="section story">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>The Naraway Story</h2>
+                <p>Born from the frustration every founder knows too well</p>
+            </div>
+            <div class="story-content fade-in">
+                <p>Every startup founder faces the same brutal reality: you have a world-changing idea, but you're drowning in execution chaos. Legal paperwork takes weeks. Finding the right developer feels impossible. Marketing feels like throwing money into a black hole. You're juggling fifteen different freelancers who don't talk to each other, and somehow your "simple" MVP is three months behind schedule.</p>
+                
+                <p>We built Naraway because we lived this nightmare. We watched brilliant founders burn out not because their ideas weren't good enough, but because they couldn't find reliable execution support. The startup ecosystem is broken — fragmented services, overpriced consultants, and zero integration between the people who are supposed to help you succeed.</p>
+                
+                <div class="vision-quote">
+                    "To build the global execution engine for the next 100K startups."
+                </div>
+                
+                <p>Naraway is different. We're not another agency selling you services. We're your integrated execution partner — one team, one process, one mission: getting your startup from idea to scale without the chaos. Think of us as your unfair advantage in a world where most startups fail not because of bad ideas, but because of bad execution.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>What We Do</h2>
+                <p>Everything you need to launch and scale, under one roof</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <span class="service-icon">⚖️</span>
+                    <h3>Legal Setup</h3>
+                    <p>From incorporation to IP protection — we handle the legal foundation so you can focus on building.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <span class="service-icon">🧠</span>
+                    <h3>Mentorship & Strategy</h3>
+                    <p>Strategic guidance from founders who've been there — avoid the common pitfalls and scale smart.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <span class="service-icon">🚀</span>
+                    <h3>MVP & Product Development</h3>
+                    <p>Ship faster with our proven development process — from wireframes to launch in weeks, not months.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <span class="service-icon">📈</span>
+                    <h3>GTM, Marketing & Hiring</h3>
+                    <p>Launch with impact and scale your team — we handle everything from brand to first hires.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Founders Choose Us -->
+    <section class="section features">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Why Founders Choose Us</h2>
+                <p>Because we understand what keeps you up at night</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">🏢</div>
+                    <h3>All-in-One Execution</h3>
+                    <p>No more juggling 10 different vendors. One team, one process, one point of contact.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightning Fast Delivery</h3>
+                    <p>We move at startup speed. What takes others months, we deliver in weeks.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">💰</div>
+                    <h3>Founder-Friendly Pricing</h3>
+                    <p>Transparent, fair pricing that scales with your startup — no hidden fees or surprises.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Trusted by 50+ Startups</h3>
+                    <p>From pre-seed to Series A — founders trust us with their most critical execution.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Real Ecosystem Access</h3>
+                    <p>Connect with our network of investors, advisors, and top talent when you need it most.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet the Founder -->
+    <section class="section founder">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Meet the Founder</h2>
+                <p>Driven by experience. Built for founders.</p>
+            </div>
+            <div class="founder-content fade-in">
+                <div class="founder-image">
+                    <div class="founder-avatar">KA</div>
+                    <div class="founder-info">
+                        <h3>Keshav Agarwal</h3>
+                        <p class="title">Founder & CEO, Naraway Solutions</p>
+                    </div>
+                </div>
+                <div class="founder-details">
+                    <div class="founder-quote">
+                        "I started Naraway because I know what it's like to be a founder with big ideas but no strong execution support. After building multiple products myself — and seeing founders waste months juggling freelancers — I realized startups need a real execution engine. That's what Naraway is. From legal paperwork to product to hiring, we move fast, smart, and founder-first."
+                    </div>
+                    <div class="founder-bg">
+                        <h4>Background</h4>
+                        <p>Tech + Startup Ecosystem veteran, Former Product Engineer with deep understanding of the startup journey from ideation to scale.</p>
+                    </div>
+                    <div class="founder-bg">
+                        <h4>Core Values</h4>
+                        <p>Execution over promises, Transparency in everything, and genuine Startup Empathy — because we've been in your shoes.</p>
+                    </div>
+                    <a href="#contact" class="cta-button">Talk to Keshav</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Logos -->
+    <section class="clients">
+        <div class="container">
+            <h3>Trusted by over 50 early-stage founders and startups</h3>
+            <div class="logos-grid">
+                <div class="logo-placeholder">TechCorp</div>
+                <div class="logo-placeholder">StartupCo</div>
+                <div class="logo-placeholder">InnovateLab</div>
+                <div class="logo-placeholder">NextGen</div>
+                <div class="logo-placeholder">FutureAI</div>
+                <div class="logo-placeholder">ScaleUp</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>What Founders Say</h2>
+                <p>Real feedback from real founders who've scaled with us</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-quote">
+                        "Naraway saved us 3 months of development time and helped us launch our MVP 60% faster than we originally planned. Their integrated approach is exactly what early-stage startups need."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SM</div>
+                        <div class="author-info">
+                            <h4>Sarah Martinez</h4>
+                            <p>CEO, EcoTech Solutions</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-quote">
+                        "Instead of managing 8 different freelancers, I had one team that understood my vision. Naraway handled everything from legal setup to our first marketing campaigns seamlessly."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RJ</div>
+                        <div class="author-info">
+                            <h4>Raj Patel</h4>
+                            <p>Founder, FinTech Innovations</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-quote">
+                        "The strategic guidance from the Naraway team helped us avoid costly mistakes and focus on what actually moves the needle. They think like founders, not agencies."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AL</div>
+                        <div class="author-info">
+                            <h4>Alex Chen</h4>
+                            <p>Co-founder, HealthTech Pro</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="contact">
+        <div class="container">
+            <h2>Let's Build Your Startup Right — Together.</h2>
+            <p>From your first legal doc to your first 1000 users — we've got your back.</p>
+            <a href="#" class="cta-button">Schedule a Free Call</a>
+        </div>
+    </section>
+
+    <script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add hover effects to service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add click analytics tracking (placeholder)
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                // Analytics tracking would go here
+                console.log('CTA clicked:', this.textContent);
+            });
+        });
+
+        // Dynamic counter animation for stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('[data-count]');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target + '+';
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current) + '+';
+                    }
+                }, 40);
+            });
+        }
+
+        // Trigger counter animation when in view
+        const statsSection = document.querySelector('.features');
+        if (statsSection) {
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            });
+            statsObserver.observe(statsSection);
+        }
+    </script>
+</body>
+</html>

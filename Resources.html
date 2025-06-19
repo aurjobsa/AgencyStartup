@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AsocWorks Solutions | Marketplace</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8fafc;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        /* Marketplace Header */
+        .marketplace-header {
+            text-align: center;
+            margin: 7rem 0 3rem;
+        }
+
+        .marketplace-header h1 {
+            font-size: 2.5rem;
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+        }
+
+        .marketplace-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #64748b;
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            height: 200px;
+            background-color: #f1f5f9;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-content {
+            padding: 1.5rem;
+        }
+
+        .product-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background-color: #dbeafe;
+            color: #2563eb;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .product-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #1e3a8a;
+        }
+
+        .product-content p {
+            color: #64748b;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-price {
+            font-weight: 700;
+            color: #1e3a8a;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 0.75rem 0;
+            background-color: #25D366;
+            color: white;
+            text-align: center;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn i {
+            margin-right: 0.5rem;
+        }
+
+        .contact-btn:hover {
+            background-color: #128C7E;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 8px;
+            overflow: hidden;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {opacity: 0; transform: translateY(-50px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            background-color: #f8fafc;
+            position: relative;
+        }
+
+        .modal-header h2 {
+            color: #1e3a8a;
+            font-size: 1.5rem;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #64748b;
+        }
+
+        .close-modal:hover {
+            color: #1e3a8a;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .modal-body {
+                flex-direction: row;
+            }
+        }
+
+        .modal-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .modal-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .modal-details {
+            flex: 1;
+        }
+
+        .modal-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background-color: #dbeafe;
+            color: #2563eb;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .modal-price {
+            font-weight: 700;
+            color: #1e3a8a;
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+
+        .modal-description {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-features {
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-features h4 {
+            color: #1e3a8a;
+            margin-bottom: 0.5rem;
+        }
+
+        .features-list {
+            list-style: none;
+        }
+
+        .features-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #64748b;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+        .modal-footer {
+            padding: 1.5rem;
+            background-color: #f8fafc;
+            text-align: center;
+        }
+
+        .modal-contact-btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background-color: #25D366;
+            color: white;
+            text-align: center;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .modal-contact-btn:hover {
+            background-color: #128C7E;
+        }
+
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <!-- <img src="/api/placeholder/40/40" alt="AsocWorks Logo"> -->
+                AsocWorks<span style="font-size: small;">Solutions</span>
+            </div>
+            <a href="index.html" style="font-weight: 500;">Back to Home</a>
+        </div>
+    </header>
+
+    <!-- Marketplace -->
+    <div class="container">
+        <div class="marketplace-header">
+            <h1>Business Resources Marketplace</h1>
+            <p>Premium leads and Excel Sheets to accelerate your business growth. Contact us to purchase.</p>
+        </div>
+
+        <div class="product-grid">
+            <!-- Lead Product 1 -->
+            <div class="product-card" data-id="1">
+                <div class="product-image">
+                    <img src="Screenshot 2025-04-14 234558.png" alt="IT Services Leads">
+                </div>
+                <div class="product-content">
+                    <span class="product-tag">Leads</span>
+                    <h3>Leads of CEOs and CXOs of Startups and Companies</h3>
+                    <p><b>2000+ Leads</b> of CEOs and Executives of Startups and Companies, Best for Selling or Collaboartions and Partnerships. High Quality Leads</p>
+                    <div class="product-price">Rs 4000 <span style="font-size: medium;">(2 Rupees per Lead/Contact)</span></div>
+                    <a href="#" class="contact-btn"><i class="fab fa-whatsapp"></i> Contact to Purchase</a>
+                </div>
+            </div>
+
+            
+            <!-- <div class="product-card" data-id="2">
+                <div class="product-image">
+                    <img src="/api/placeholder/280/200" alt="New Business Registrations">
+                </div>
+                <div class="product-content">
+                    <span class="product-tag">Leads</span>
+                    <h3>New Business Registrations</h3>
+                    <p>Fresh list of 300+ newly registered companies in your target market.</p>
+                    <div class="product-price">$249</div>
+                    <a href="#" class="contact-btn"><i class="fab fa-whatsapp"></i> Contact to Purchase</a>
+                </div>
+            </div> -->
+
+            
+            <!-- <div class="product-card" data-id="3">
+                <div class="product-image">
+                    <img src="/api/placeholder/280/200" alt="Financial Model">
+                </div>
+                <div class="product-content">
+                    <span class="product-tag">Excel</span>
+                    <h3>5-Year Financial Model</h3>
+                    <p>Complete financial projection template with automated calculations and investor-ready reports.</p>
+                    <div class="product-price">$99</div>
+                    <a href="#" class="contact-btn"><i class="fab fa-whatsapp"></i> Contact to Purchase</a>
+                </div>
+            </div>
+
+            
+            <div class="product-card" data-id="4">
+                <div class="product-image">
+                    <img src="/api/placeholder/280/200" alt="HR Performance Tracker">
+                </div>
+                <div class="product-content">
+                    <span class="product-tag">Excel</span>
+                    <h3>Employee Performance Tracker</h3>
+                    <p>Comprehensive tool for monitoring team performance with KPI dashboards.</p>
+                    <div class="product-price">$79</div>
+                    <a href="#" class="contact-btn"><i class="fab fa-whatsapp"></i> Contact to Purchase</a>
+                </div>
+            </div>
+
+            
+            <div class="product-card" data-id="5">
+                <div class="product-image">
+                    <img src="/api/placeholder/280/200" alt="Marketing ROI Calculator">
+                </div>
+                <div class="product-content">
+                    <span class="product-tag">Excel</span>
+                    <h3>Marketing ROI Calculator</h3>
+                    <p>Track campaign performance and calculate return on marketing investment.</p>
+                    <div class="product-price">$69</div>
+                    <a href="#" class="contact-btn"><i class="fab fa-whatsapp"></i> Contact to Purchase</a>
+                </div>
+            </div>
+
+            
+            <div class="product-card" data-id="6">
+                <div class="product-image">
+                    <img src="/api/placeholder/280/200" alt="Marketing Leads">
+                </div>
+                <div class="product-content">
+                    <span class="product-tag">Leads</span>
+                    <h3>Marketing Decision Makers</h3>
+                    <p>400+ verified marketing directors and CMOs from mid-to-large companies.</p>
+                    <div class="product-price">$349</div>
+                    <a href="#" class="contact-btn"><i class="fab fa-whatsapp"></i> Contact to Purchase</a>
+                </div>
+            </div>
+
+            
+            <div class="product-card" data-id="7">
+                <div class="product-image">
+                    <img src="/api/placeholder/280/200" alt="Project Management Dashboard">
+                </div>
+                <div class="product-content">
+                    <span class="product-tag">Excel</span>
+                    <h3>Project Management Dashboard</h3>
+                    <p>Visual dashboard for tracking multiple projects, tasks, and deadlines.</p>
+                    <div class="product-price">$89</div>
+                    <a href="#" class="contact-btn"><i class="fab fa-whatsapp"></i> Contact to Purchase</a>
+                </div>
+            </div>
+
+            
+            <div class="product-card" data-id="8">
+                <div class="product-image">
+                    <img src="/api/placeholder/280/200" alt="Recruitment Leads">
+                </div>
+                <div class="product-content">
+                    <span class="product-tag">Leads</span>
+                    <h3>HR & Recruitment Leads</h3>
+                    <p>350+ verified HR managers and recruitment specialists from growing companies.</p>
+                    <div class="product-price">$279</div>
+                    <a href="#" class="contact-btn"><i class="fab fa-whatsapp"></i> Contact to Purchase</a>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <!-- Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Product Title</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalImage" src="/api/placeholder/400/300" alt="Product">
+                </div>
+                <div class="modal-details">
+                    <span class="modal-tag" id="modalTag">Category</span>
+                    <div class="modal-price" id="modalPrice">$XXX</div>
+                    <div class="modal-description" id="modalDescription">
+                        Product description will go here.
+                    </div>
+                    <div class="modal-features">
+                        <h4>What's Included:</h4>
+                        <ul class="features-list" id="modalFeatures">
+                            <!-- Features will be populated by JavaScript -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="modal-contact-btn" id="modalContactBtn">
+                    <i class="fab fa-whatsapp"></i> Contact via WhatsApp to Purchase
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Product data
+        const products = [
+            { 
+                id: 1,
+                title: "Leads of CEOs and CXOs of Startups and Companies Contacts",
+                tag: "Leads",
+                price: "Rs 4212 (2 Rupees Per Lead)",
+                description: "Access a premium list of 2106 high-quality B2B leads, featuring verified contact details of CEOs, founders, and top executives from fast-growing startups and companies across multiple industries. Ideal for outreach, partnerships, fundraising, and B2B sales campaigns.",
+                image: "Screenshot 2025-04-14 234558.png",
+                features: [
+                    "Option Available to Get a Customised Number of Leads with varied Pricing",
+                    "2106 verified startup and company leads",
+                    "Direct email access to CEOs, founders, and key decision-makers",
+                    "Company name, website, industry, and funding stage",
+                    "Contact persons designation, location, and company size",
+                    "Segmented by domain and region for targeted campaigns",
+                    "Excel file with clean formatting and filter-ready fields",
+                    "Data verified and updated within the last 30 days"
+                ]
+
+            },
+            {
+                id: 2,
+                title: "New Business Registrations",
+                tag: "Leads",
+                price: "$249",
+                description: "Get ahead of your competition with our fresh list of newly registered companies in your target market. This lead package contains over 300 businesses that have registered within the last 60 days, giving you the opportunity to be the first to reach out to these potential clients.",
+                image: "/api/placeholder/400/300",
+                features: [
+                    "300+ newly registered businesses",
+                    "Registration dates and business types",
+                    "Founder/Director contact information",
+                    "Business address and contact details",
+                    "Industry classification",
+                    "Company size where available",
+                    "Excel format with sorting capabilities"
+                ]
+            },
+            {
+                id: 3,
+                title: "5-Year Financial Model",
+                tag: "Excel",
+                price: "$99",
+                description: "Our comprehensive 5-Year Financial Model template helps you create professional financial projections for your business. This investor-ready Excel template includes income statements, cash flow projections, balance sheets, and key financial metrics with automated calculations.",
+                image: "/api/placeholder/400/300",
+                features: [
+                    "5-year financial projections",
+                    "Income statement, cash flow, and balance sheet",
+                    "Break-even analysis calculator",
+                    "Scenario planning tools",
+                    "Investor-ready dashboards and charts",
+                    "Automated calculations and formulas",
+                    "Customizable assumptions and variables"
+                ]
+            },
+            {
+                id: 4,
+                title: "Employee Performance Tracker",
+                tag: "Excel",
+                price: "$79",
+                description: "Track and analyze your team's performance with our comprehensive Employee Performance Tracker. This Excel tool helps HR managers and team leaders monitor KPIs, set goals, document feedback, and identify trends in employee performance.",
+                image: "/api/placeholder/400/300",
+                features: [
+                    "Individual employee performance tracking",
+                    "Goal setting and achievement monitoring",
+                    "Performance review documentation",
+                    "KPI tracking with visual indicators",
+                    "Team performance dashboard",
+                    "Customizable performance metrics",
+                    "Feedback and development plan sections"
+                ]
+            },
+            {
+                id: 5,
+                title: "Marketing ROI Calculator",
+                tag: "Excel",
+                price: "$69",
+                description: "Maximize your marketing budget with our Marketing ROI Calculator. This Excel tool helps you track campaign performance across multiple channels, calculate return on investment, and visualize your marketing performance to make data-driven decisions.",
+                image: "/api/placeholder/400/300",
+                features: [
+                    "Multi-channel campaign tracking",
+                    "ROI calculations for each marketing activity",
+                    "Budget allocation optimizer",
+                    "Lead generation and conversion metrics",
+                    "Visual performance dashboards",
+                    "Month-over-month comparison tools",
+                    "Customizable marketing KPIs"
+                ]
+            },
+            {
+                id: 6,
+                title: "Marketing Decision Makers",
+                tag: "Leads",
+                price: "$349",
+                description: "Connect with key marketing decision makers using our premium lead list. This package includes over 400 verified contacts of marketing directors, CMOs, and marketing managers from mid-to-large companies who have budgetary authority for marketing services.",
+                image: "/api/placeholder/400/300",
+                features: [
+                    "400+ verified marketing decision makers",
+                    "Direct contact information (email and phone)",
+                    "Company size and industry details",
+                    "Marketing budget information where available",
+                    "Current marketing technology stack data",
+                    "LinkedIn profile links",
+                    "Excel format with filtering options"
+                ]
+            },
+            {
+                id: 7,
+                title: "Project Management Dashboard",
+                tag: "Excel",
+                price: "$89",
+                description: "Keep your projects on track with our comprehensive Project Management Dashboard. This Excel template allows you to manage multiple projects simultaneously, track tasks, set deadlines, allocate resources, and generate status reports for stakeholders.",
+                image: "/api/placeholder/400/300",
+                features: [
+                    "Multi-project tracking capabilities",
+                    "Task management with progress indicators",
+                    "Resource allocation tools",
+                    "Gantt chart visualization",
+                    "Budget tracking and forecasting",
+                    "Stakeholder reporting templates",
+                    "Risk and issue management sections"
+                ]
+            },
+            {
+                id: 8,
+                title: "HR & Recruitment Leads",
+                tag: "Leads",
+                price: "$279",
+                description: "Our HR & Recruitment Leads package provides you with over 350 verified contacts of HR managers and recruitment specialists from companies that are actively hiring and growing. These contacts have decision-making authority for recruitment and HR services.",
+                image: "/api/placeholder/400/300",
+                features: [
+                    "350+ verified HR and recruitment contacts",
+                    "Direct contact information (email and phone)",
+                    "Company hiring status and growth information",
+                    "Current hiring needs where available",
+                    "Company size and industry details",
+                    "Current HR technology information",
+                    "Excel format with detailed categorization"
+                ]
+            }
+        ];
+
+        // Set up the modal functionality
+        const modal = document.getElementById('productModal');
+        const closeModal = document.querySelector('.close-modal');
+        const productCards = document.querySelectorAll('.product-card');
+
+        // Open modal when clicking on a product card
+        productCards.forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Don't open modal if clicking on the contact button
+                if (e.target.classList.contains('contact-btn') || e.target.parentElement.classList.contains('contact-btn')) {
+                    return;
+                }
+                
+                const productId = this.getAttribute('data-id');
+                const product = products.find(p => p.id == productId);
+                
+                // Populate modal with product data
+                document.getElementById('modalTitle').textContent = product.title;
+                document.getElementById('modalTag').textContent = product.tag;
+                document.getElementById('modalPrice').textContent = product.price;
+                document.getElementById('modalDescription').textContent = product.description;
+                document.getElementById('modalImage').src = product.image;
+                document.getElementById('modalImage').alt = product.title;
+                
+                // Clear and populate features
+                const featuresList = document.getElementById('modalFeatures');
+                featuresList.innerHTML = '';
+                product.features.forEach(feature => {
+                    const li = document.createElement('li');
+                    li.textContent = feature;
+                    featuresList.appendChild(li);
+                });
+                
+                // Set up WhatsApp contact link
+                const contactBtn = document.getElementById('modalContactBtn');
+                contactBtn.href = `https://wa.me/8630793609?text=I'm%20interested%20in%20purchasing%20the%20${encodeURIComponent(product.title)}%20for%20${encodeURIComponent(product.price)}.%20Could%20you%20provide%20more%20information?`;
+                
+                // Show modal
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling behind modal
+            });
+        });
+
+        // Close modal when clicking the X
+        closeModal.addEventListener('click', function() {
+            modal.style.display = 'none';
+            document.body.style.overflow = ''; // Restore scrolling
+        });
+
+        // Close modal when clicking outside the modal content
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+        });
+
+        // Set up WhatsApp links on the contact buttons
+        document.querySelectorAll('.contact-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation(); // Prevent modal from opening
+                
+                const card = this.closest('.product-card');
+                const productId = card.getAttribute('data-id');
+                const product = products.find(p => p.id == productId);
+                
+                // Open WhatsApp chat with preset message
+                window.open(`https://wa.me/8630793609?text=I'm%20interested%20in%20purchasing%20the%20${encodeURIComponent(product.title)}%20for%20${encodeURIComponent(product.price)}.%20Could%20you%20provide%20more%20information?`, '_blank');
+            });
+        });
+    </script>
+</body>
+</html>

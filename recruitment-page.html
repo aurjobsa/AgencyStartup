@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruitment Services | The Right Talent, At The Right Time | Naraway Solutions</title>
+    <meta name="description" content="Hire smarter, faster, and more affordably. End-to-end recruitment services for startups and growing businesses. Build your dream team with Naraway.">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Recruitment Services | The Right Talent, At The Right Time | Naraway Solutions">
+    <meta property="og:description" content="Professional recruitment services for startups. From MVP teams to enterprise scaling.">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="recruitment_complete_css.css">
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="Logo.png" alt="Naraway Solutions">
+            </div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button class="nav-cta">Get Started</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    The Right Talent. <span class="gradient-text">At The Right Time.</span> For The Right Vision.
+                </h1>
+                <p class="hero-subtitle">
+                    We understand the startup and growth-stage chaos — and we help you hire smarter, faster, and more affordably. Build your dream team while you focus on growth.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="500">0</span>
+                        <span class="stat-label">Successful Hires</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="72">0</span>
+                        <span class="stat-label">Hours to First Profile</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="95">0</span>
+                        <span class="stat-label">Client Satisfaction</span>
+                    </div>
+                </div>
+                <button class="cta-primary" onclick="scrollToSection('contact')">
+                    Start Hiring Today
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-cards">
+                    <div class="role-card" data-role="Product Manager">
+                        <i class="fas fa-chart-line"></i>
+                        <span>PM</span>
+                    </div>
+                    <div class="role-card" data-role="Full Stack Developer">
+                        <i class="fas fa-code"></i>
+                        <span>Dev</span>
+                    </div>
+                    <div class="role-card" data-role="Marketing Lead">
+                        <i class="fas fa-bullhorn"></i>
+                        <span>Marketing</span>
+                    </div>
+                    <div class="role-card" data-role="Operations Manager">
+                        <i class="fas fa-cogs"></i>
+                        <span>Ops</span>
+                    </div>
+                    <div class="role-card" data-role="UI/UX Designer">
+                        <i class="fas fa-palette"></i>
+                        <span>Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <h2 class="section-title">Why Naraway for Talent?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="benefit-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Built for Startups</h3>
+                    <p>Flexible plans, no rigid retainers. We understand startup constraints and adapt accordingly.</p>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>High-Intent Candidates</h3>
+                    <p>Quality-first sourcing ensures every candidate is pre-vetted and genuinely interested.</p>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Candidate Experience</h3>
+                    <p>Interview coordination and follow-up managed for you. Professional experience guaranteed.</p>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="benefit-icon">
+                        <i class="fas fa-crosshairs"></i>
+                    </div>
+                    <h3>Niche Hiring</h3>
+                    <p>Specialized in Product, Tech, Finance, Marketing & Operations roles for growing companies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Services -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Recruitment Offerings</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>End-to-End Talent Hiring</h3>
+                    <ul class="service-features">
+                        <li>Sourcing, Screening, Interview Coordination</li>
+                        <li>Technical, Non-Technical, CXO-level roles</li>
+                        <li>Both remote and in-office placements</li>
+                        <li>Complete candidate management</li>
+                    </ul>
+                    <div class="service-highlight">Perfect for targeted hiring</div>
+                </div>
+                
+                <div class="service-card featured">
+                    <div class="service-badge">Most Popular</div>
+                    <div class="service-icon">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <h3>HR & Recruitment Process Outsourcing (RPO)</h3>
+                    <ul class="service-features">
+                        <li>Act as your extended talent team</li>
+                        <li>Ideal for early-stage startups with lean HR</li>
+                        <li>Structured hiring pipelines + ATS management</li>
+                        <li>Complete recruitment infrastructure</li>
+                    </ul>
+                    <div class="service-highlight">Scale without internal HR</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Employer Branding Strategy</h3>
+                    <ul class="service-features">
+                        <li>Build your startup's identity as great workplace</li>
+                        <li>Talent-focused digital presence setup</li>
+                        <li>LinkedIn company page optimization</li>
+                        <li>Career page development</li>
+                    </ul>
+                    <div class="service-highlight">Attract top talent organically</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h3>Startup India & Early Team Building</h3>
+                    <ul class="service-features">
+                        <li>Special processes for Startup India firms</li>
+                        <li>First-10 hires focus</li>
+                        <li>Product managers, developers, operations</li>
+                        <li>Government grant program support</li>
+                    </ul>
+                    <div class="service-highlight">Built for Indian startups</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="process" id="process">
+        <div class="container">
+            <h2 class="section-title">Get Started in 3 Simple Steps</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Submit Your Requirements</h3>
+                        <p>Tell us about your hiring needs, company culture, and ideal candidate profile. We'll create a tailored hiring strategy.</p>
+                    </div>
+                    <div class="step-visual">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>We Match & Share Profiles</h3>
+                        <p>Within 48-72 hours, receive pre-screened candidate profiles that match your requirements and culture fit.</p>
+                    </div>
+                    <div class="step-visual">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>You Interview, We Manage</h3>
+                        <p>Focus on the interview while we handle scheduling, follow-ups, offer negotiations, and onboarding coordination.</p>
+                    </div>
+                    <div class="step-visual">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Engagement Models</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Fast Hire</h3>
+                        <div class="price">₹4,999<span>/role</span></div>
+                        <p>Perfect for targeted single hires</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 1-2 roles hiring</li>
+                        <li><i class="fas fa-check"></i> Targeted outreach</li>
+                        <li><i class="fas fa-check"></i> Pre-screened profiles</li>
+                        <li><i class="fas fa-check"></i> Interview coordination</li>
+                        <li><i class="fas fa-check"></i> Basic reporting</li>
+                    </ul>
+                    <button class="pricing-cta">Get Started</button>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Scale & Hire</h3>
+                        <div class="price">₹29,999<span>/month</span></div>
+                        <p>Comprehensive hiring solution</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 5-10 roles hiring</li>
+                        <li><i class="fas fa-check"></i> Dedicated recruiter</li>
+                        <li><i class="fas fa-check"></i> Advanced reporting</li>
+                        <li><i class="fas fa-check"></i> ATS management</li>
+                        <li><i class="fas fa-check"></i> Employer branding support</li>
+                        <li><i class="fas fa-check"></i> Priority support</li>
+                    </ul>
+                    <button class="pricing-cta">Get Started</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Startup Team Builder</h3>
+                        <div class="price">Custom<span> Quote</span></div>
+                        <p>Complete team building solution</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Build full initial team</li>
+                        <li><i class="fas fa-check"></i> Strategic hiring advisory</li>
+                        <li><i class="fas fa-check"></i> Employer branding</li>
+                        <li><i class="fas fa-check"></i> Government grant support</li>
+                        <li><i class="fas fa-check"></i> Dedicated account manager</li>
+                        <li><i class="fas fa-check"></i> 24/7 support</li>
+                    </ul>
+                    <button class="pricing-cta">Book a Call</button>
+                </div>
+            </div>
+            <div class="pricing-note">
+                <p><i class="fas fa-info-circle"></i> Special plans available for hiring via government grant programs or incubation support.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="case-studies" id="case-studies">
+        <div class="container">
+            <h2 class="section-title">Success Stories</h2>
+            <div class="case-studies-grid">
+                <div class="case-study-card">
+                    <div class="case-study-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>FinTech Startup</h3>
+                    <div class="case-study-stats">
+                        <div class="stat">
+                            <span class="number">8</span>
+                            <span class="label">Key Roles</span>
+                        </div>
+                        <div class="stat">
+                            <span class="number">60</span>
+                            <span class="label">Days</span>
+                        </div>
+                    </div>
+                    <p>Successfully hired 8 key positions including Product Manager, Full-Stack Developers, and Operations Lead for a growing fintech platform.</p>
+                    <div class="case-study-tags">
+                        <span class="tag">Product</span>
+                        <span class="tag">Engineering</span>
+                        <span class="tag">Operations</span>
+                    </div>
+                </div>
+                
+                <div class="case-study-card">
+                    <div class="case-study-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>B2B SaaS Platform</h3>
+                    <div class="case-study-stats">
+                        <div class="stat">
+                            <span class="number">1</span>
+                            <span class="label">Sr. PM Role</span>
+                        </div>
+                        <div class="stat">
+                            <span class="number">Tier-1</span>
+                            <span class="label">Talent Pool</span>
+                        </div>
+                    </div>
+                    <p>Closed Senior Product Manager position from premium talent pool with candidates from top-tier companies and proven track records.</p>
+                    <div class="case-study-tags">
+                        <span class="tag">Senior Hire</span>
+                        <span class="tag">Product Management</span>
+                        <span class="tag">SaaS</span>
+                    </div>
+                </div>
+                
+                <div class="case-study-card">
+                    <div class="case-study-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>D2C Brand</h3>
+                    <div class="case-study-stats">
+                        <div class="stat">
+                            <span class="number">15+</span>
+                            <span class="label">Hires</span>
+                        </div>
+                        <div class="stat">
+                            <span class="number">3</span>
+                            <span class="label">Cities</span>
+                        </div>
+                    </div>
+                    <p>Scaled operations and content team across Mumbai, Delhi, and Bangalore for a fast-growing direct-to-consumer brand.</p>
+                    <div class="case-study-tags">
+                        <span class="tag">Operations</span>
+                        <span class="tag">Content</span>
+                        <span class="tag">Multi-city</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="testimonial-carousel">
+                <div class="testimonial-track" id="testimonialTrack">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p>"Naraway helped us hire our first 10 people while we focused on product. Great structure, no fluff."</p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Nikhil D.</h4>
+                                    <span>Co-founder, SmartDesk</span>
+                                </div>
+                                <div class="company-logo">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p>"Most responsive and structured hiring team we've worked with. They understand startup urgency."</p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Riya K.</h4>
+                                    <span>HR Head, FinMate</span>
+                                </div>
+                                <div class="company-logo">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p>"The quality of candidates and speed of delivery exceeded our expectations. Highly recommended for growing teams."</p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Arjun M.</h4>
+                                    <span>CEO, TechFlow</span>
+                                </div>
+                                <div class="company-logo">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" data-slide="0"></span>
+                    <span class="indicator" data-slide="1"></span>
+                    <span class="indicator" data-slide="2"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQs -->
+    <section class="faqs" id="faqs">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>How quickly can you provide candidate profiles?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We typically share the first batch of pre-screened candidate profiles within 48-72 hours of receiving your detailed requirements. For urgent roles, we can expedite this to 24-48 hours.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What if we're not satisfied with the candidates?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer unlimited candidate sourcing until you find the right fit. If you're not satisfied with our initial profiles, we'll refine our search based on your feedback and provide better-matched candidates.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Do you handle remote hiring across different time zones?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we specialize in remote hiring and can coordinate interviews across different time zones. Our team is experienced in managing global remote hiring processes efficiently.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What's included in your employer branding service?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our employer branding includes LinkedIn company page optimization, career page development, talent attraction content strategy, and building your reputation as an employer of choice in your industry.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Do you provide replacement guarantee?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we provide a 90-day replacement guarantee. If a hired candidate doesn't work out within the first 90 days, we'll source and provide a replacement at no additional cost.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Focus on Growth, While We Build Your Team</h2>
+                <p>Ready to hire smarter, faster, and more affordably? Let's discuss your hiring needs and build your dream team together.</p>
+                <div class="cta-buttons">
+                    <button class="cta-primary">
+                        Start Hiring Now
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="cta-secondary">
+                        <i class="fas fa-calendar"></i>
+                        Book a Call
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="Logo.png" alt="Naraway Solutions">
+                    <p>Your comprehensive service agency for all business needs.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">IT Solutions</a></li>
+                        <li><a href="#">Recruitment</a></li>
+                        <li><a href="#">Video Editing</a></li>
+                        <li><a href="#">Marketing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <p>Sector 62 Noida, Uttar Pradesh, India</p>
+                    <p>+91 8630793609</p>
+                    <p>aajmarketa@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Naraway Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="recruitment_js.js"></script>
+</body>
+</html>

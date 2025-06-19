@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Net Worth Comparison</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #eee;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    input, button {
+      font-size: 16px;
+      padding: 8px;
+      margin: 5px 0;
+      width: 100%;
+      max-width: 300px;
+      border-radius: 4px;
+      border: none;
+    }
+    input {
+      background-color: #222;
+      color: #eee;
+    }
+    button {
+      background-color: #ffd700;
+      color: #121212;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    table {
+      margin-top: 20px;
+      width: 100%;
+      max-width: 700px;
+      border-collapse: collapse;
+      color: #eee;
+    }
+    th, td {
+      border: 1px solid #444;
+      padding: 8px 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #333;
+    }
+    .highlight {
+      background-color: #ffd700;
+      color: #121212;
+      font-weight: bold;
+    }
+    .error {
+      color: #ff5555;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Compare Your Net Worth to Top 10 Billionaires</h2>
+
+  <input type="text" id="name" placeholder="Enter your name" />
+  <input type="number" id="networth" placeholder="Your net worth (in billions USD)" step="0.01" min="0" />
+  <button id="compareBtn">Compare</button>
+
+  <div id="error" class="error"></div>
+
+  <table id="resultTable" style="display:none;">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Net Worth (Billion USD)</th>
+        <th>Source</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+
+  <script>
+    const apiURL = 'https://cdn.jsdelivr.net/gh/komed3/rtb-api@main/api/list/rtb/latest';
+
+    const nameInput = document.getElementById('name');
+    const netWorthInput = document.getElementById('networth');
+    const compareBtn = document.getElementById('compareBtn');
+    const errorDiv = document.getElementById('error');
+    const resultTable = document.getElementById('resultTable');
+    const tableBody = document.getElementById('tableBody');
+
+    compareBtn.addEventListener('click', async () => {
+      errorDiv.textContent = '';
+      resultTable.style.display = 'none';
+      tableBody.innerHTML = '';
+
+      const userName = nameInput.value.trim();
+      const userNetWorth = parseFloat(netWorthInput.value);
+
+      if (!userName) {
+        errorDiv.textContent = 'Please enter your name.';
+        return;
+      }
+      if (isNaN(userNetWorth) || userNetWorth < 0) {
+        errorDiv.textContent = 'Please enter a valid net worth (0 or more).';
+        return;
+      }
+
+      try {
+        const response = await fetch(apiURL);
+        if (!response.ok) throw new Error('Failed to fetch API data');
+        const data = await response.json();
+
+        if (!data.list || !Array.isArray(data.list)) {
+          throw new Error('API data format error');
+        }
+
+        // Get top 10 billionaires
+        const top10 = data.list.slice(0, 10);
+
+        // Add user to list
+        top10.push({
+          rank: '-',
+          name: userName,
+          networth: userNetWorth * 1000, // API uses million USD units
+          source: ['Your Net Worth'],
+          citizenship: 'You',
+          isUser: true
+        });
+
+        // Sort by networth descending
+        top10.sort((a, b) => b.networth - a.networth);
+
+        // Build table rows
+        for (const person of top10) {
+          const tr = document.createElement('tr');
+          if (person.isUser) {
+            tr.classList.add('highlight');
+          }
+
+          tr.innerHTML = `
+            <td>${person.isUser ? '-' : person.rank}</td>
+            <td>${person.name}</td>
+            <td>${(person.networth / 1000).toFixed(2)}</td>
+            <td>${person.source ? person.source.join(', ') : '-'}</td>
+            <td>${person.citizenship ? person.citizenship.toUpperCase() : '-'}</td>
+          `;
+          tableBody.appendChild(tr);
+        }
+
+        resultTable.style.display = 'table';
+
+      } catch (err) {
+        errorDiv.textContent = 'Error: ' + err.message;
+      }
+    });
+  </script>
+
+</body>
+</html>
