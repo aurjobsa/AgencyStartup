@@ -321,44 +321,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     
                     
-                    
-                    
-
-
-                    
-                    
-    e.preventDefault();
-
-    const form = e.target;
-    const formData = new FormData(form);
-
-    fetch("https://script.google.com/macros/s/AKfycbyyuL19dhtuawxs996x94Bx5HnymbtY0HOY28zgSB77W1DBZK5Q1yaCh60dNC-z2nqTJQ/exec", {
-        method: "POST",
-        body: formData,
-    })
-        .then((res) => res.json())
-        .then((data) => {
-        alert(data.message);
-        if (data.status === "success") {
-            form.reset();
-        }
-        })
-        .catch((err) => {
-        console.error("Error:", err);
-        alert("There was an error submitting the form.");
-        });
-
-
-
-
-
-
-                    
-
-
-
-                    
-                    
                     // Show success alert
                     const successAlert = document.createElement('div');
                     successAlert.classList.add('alert-success');

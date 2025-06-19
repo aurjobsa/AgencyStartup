@@ -427,7 +427,7 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form id="contactForm">
+                    <form action="https://formspree.io/f/xrbkazoq" method="post" id="contactForm">
                         <div class="form-group">
                             <input type="text" id="name" name="name" placeholder="Your Name" required>
                         </div>
@@ -451,6 +451,12 @@
                         <div class="form-group">
                             <textarea id="message" name="message" placeholder="Your Message" required></textarea>
                         </div>
+                        <!-- 🔧 Hidden config for FormSubmit -->
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_subject" value="New Lead from Naraway Website">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_autoresponse" value="Thanks for reaching out to Naraway! We'll get back to you soon.">
+                        <input type="hidden" name="_next" value="https://naraway.com/thank-you.html">
                         <button type="submit" class="btn-primary">Send Message</button>
                     </form>
                 </div>
@@ -528,6 +534,15 @@
     </a>
 
     <script src="agency-website-js.js"></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-53YY7BXK1S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-53YY7BXK1S');
+</script>
     <!-- <script>
         document.addEventListener('contextmenu', event => event.preventDefault());
 
