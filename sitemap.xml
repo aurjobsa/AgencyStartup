@@ -9,12 +9,12 @@
 
   <!-- Core Pages -->
   <url>
-    <loc>https://naraway.com/naraway_about_page.html</loc>
+    <loc>https://naraway.com/About.html</loc>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://naraway.com/naraway_packages_html.html</loc>
+    <loc>https://naraway.com/Pricing.html</loc>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
   </url>
