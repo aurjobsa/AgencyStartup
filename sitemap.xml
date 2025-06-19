@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
+  <url>
+    <loc>https://naraway.com/</loc>
+    <priority>1.00</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Core Pages -->
+  <url>
+    <loc>https://naraway.com/naraway_about_page.html</loc>
+    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://naraway.com/naraway_packages_html.html</loc>
+    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://naraway.com/case_studies_page.html</loc>
+    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Services Pages -->
+  <url>
+    <loc>https://naraway.com/it-solutions-page.html</loc>
+    <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://naraway.com/recruitment-page.html</loc>
+    <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://naraway.com/naraway-marketing-page.html</loc>
+    <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://naraway.com/legal_compliance_html.html</loc>
+    <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Policies -->
+  <url>
+    <loc>https://naraway.com/PrivacyPolicy.html</loc>
+    <priority>0.50</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://naraway.com/TermsandConditions.html</loc>
+    <priority>0.50</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://naraway.com/cookie-policy.html</loc>
+    <priority>0.50</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+</urlset>
