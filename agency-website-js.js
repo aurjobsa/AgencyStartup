@@ -320,6 +320,38 @@ document.addEventListener('DOMContentLoaded', function() {
                     // window.location.href = mailtoLink;
 
                     
+                    // e.preventDefault();
+
+                    // const formData = {
+                    //     "First name": document.getElementById("firstName").value || "",
+                    //     "Last name": document.getElementById("lastName")?.value || "",
+                    //     "Phone number": document.getElementById("phone")?.value || "",
+                    //     "Email": document.getElementById("email").value || "",
+                    //     "Your question": document.getElementById("question").value || "",
+                    //     "Submitted at": new Date().toISOString(),
+                    //     "Submission ID": "SheetDB_" + Math.floor(Math.random() * 100000),
+                    //     "Respondent ID": "ContactForm"
+                    // };
+
+                    // fetch("https://sheetdb.io/api/v1/7wko7s34o8m02", {
+                    //     method: "POST",
+                    //     headers: { "Content-Type": "application/json" },
+                    //     body: JSON.stringify({ data: formData }),
+                    // })
+                    // .then(res => {
+                    //     if (res.ok) {
+                    //     alert("Form submitted successfully!");
+                    //     document.getElementById("contactForm").reset();
+                    //     } else {
+                    //     alert("Submission failed. Please try again.");
+                    //     }
+                    // })
+                    // .catch(err => {
+                    //     console.error(err);
+                    //     alert("Something went wrong.");
+                    // });
+
+                    
                     
                     // Show success alert
                     const successAlert = document.createElement('div');
