@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naraway Blog - Latest Insights & Stories</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Discover the latest insights, stories, and updates from Naraway. Stay informed with our expert perspectives and industry knowledge.">
+  <meta name="keywords" content="Naraway, blog, insights, stories, updates, technology, business">
+  <meta name="author" content="Naraway">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://naraway.com/blog">
+  <meta property="og:title" content="Naraway Blog - Latest Insights & Stories">
+  <meta property="og:description" content="Discover the latest insights, stories, and updates from Naraway. Stay informed with our expert perspectives and industry knowledge.">
+  <meta property="og:image" content="https://naraway.com/assets/naraway-blog-og.jpg">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://naraway.com/blog">
+  <meta property="twitter:title" content="Naraway Blog - Latest Insights & Stories">
+  <meta property="twitter:description" content="Discover the latest insights, stories, and updates from Naraway. Stay informed with our expert perspectives and industry knowledge.">
+  <meta property="twitter:image" content="https://naraway.com/assets/naraway-blog-twitter.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://naraway.com/blog">
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Naraway Blog",
+    "description": "Latest insights, stories, and updates from Naraway",
+    "url": "https://naraway.com/blog",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Naraway",
+      "url": "https://naraway.com"
+    }
+  }
+  </script>
+  
+  <style>
+    :root {
+      --primary-color: #6366f1;
+      --primary-dark: #4f46e5;
+      --secondary-color: #f8fafc;
+      --text-primary: #1e293b;
+      --text-secondary: #64748b;
+      --border-color: #e2e8f0;
+      --shadow-light: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+      --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --border-radius: 12px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      min-height: 100vh;
+    }
+
+    /* Header Section */
+    .header {
+      background: var(--gradient-bg);
+      padding: 4rem 0 6rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="white" opacity="0.1"><polygon points="0,0 1000,0 1000,80 0,100"/></svg>') no-repeat center bottom;
+      background-size: cover;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .header h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .header p {
+      font-size: 1.25rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2rem;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+
+    .naraway-logo {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: var(--transition);
+      animation: fadeInUp 0.8s ease-out 0.4s both;
+    }
+
+    .naraway-logo:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Blog Grid */
+    .blog-section {
+      padding: 4rem 0;
+      margin-top: -3rem;
+      position: relative;
+      z-index: 3;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    #blog-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      animation: fadeIn 1s ease-out;
+    }
+
+    /* Blog Cards */
+    .blog-card {
+      background: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-light);
+      overflow: hidden;
+      transition: var(--transition);
+      border: 1px solid var(--border-color);
+      position: relative;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-large);
+    }
+
+    .blog-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-bg);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .blog-card:hover::before {
+      opacity: 1;
+    }
+
+    .blog-header {
+      padding: 2rem 2rem 1rem;
+    }
+
+    .blog-title {
+      margin: 0 0 1rem;
+    }
+
+    .blog-title a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 600;
+      line-height: 1.3;
+      transition: var(--transition);
+      display: block;
+    }
+
+    .blog-title a:hover {
+      color: var(--primary-color);
+    }
+
+    .blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+    }
+
+    .blog-tag {
+      background: var(--secondary-color);
+      color: var(--primary-color);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    .blog-content {
+      padding: 0 2rem 2rem;
+    }
+
+    .blog-preview {
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--secondary-color);
+      transition: var(--transition);
+    }
+
+    .blog-preview:hover {
+      border-color: var(--primary-color);
+    }
+
+    .blog-preview iframe {
+      width: 100%;
+      height: 120px;
+      border: none;
+      display: block;
+      background: white;
+    }
+
+    .read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 1rem;
+      transition: var(--transition);
+    }
+
+    .read-more:hover {
+      color: var(--primary-dark);
+      transform: translateX(4px);
+    }
+
+    .read-more::after {
+      content: '→';
+      transition: var(--transition);
+    }
+
+    /* Loading State */
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 0;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid var(--border-color);
+      border-top: 3px solid var(--primary-color);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--text-secondary);
+    }
+
+    .empty-state h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2.5rem;
+      }
+      
+      .header p {
+        font-size: 1.1rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      #blog-list {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .blog-header,
+      .blog-content {
+        padding: 1.5rem;
+      }
+      
+      .blog-content {
+        padding-top: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 1rem;
+      }
+      
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .blog-header,
+      .blog-content {
+        padding: 1rem;
+      }
+      
+      .blog-content {
+        padding-top: 0;
+      }
+    }
+
+    /* Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Focus styles for accessibility */
+    .blog-title a:focus,
+    .read-more:focus,
+    .naraway-logo:focus {
+      outline: 2px solid var(--primary-color);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="header-content">
+      <h1>Naraway Blog</h1>
+      <p>Discover insights, stories, and updates from our journey</p>
+      <a href="/" class="naraway-logo" aria-label="Go to Naraway homepage">
+        ← Back to Naraway
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="blog-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Latest Posts</h2>
+        <p class="section-subtitle">Stay updated with our latest thoughts, insights, and stories from the Naraway community.</p>
+      </div>
+      
+      <!-- Loading State -->
+      <div id="loading" class="loading">
+        <div class="spinner" aria-label="Loading blog posts"></div>
+      </div>
+      
+      <!-- Blog Grid -->
+      <div id="blog-list" style="display: none;"></div>
+      
+      <!-- Empty State -->
+      <div id="empty-state" class="empty-state" style="display: none;">
+        <h3>No posts yet</h3>
+        <p>We're working on some amazing content. Check back soon!</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Enhanced blog loading with better error handling and SEO
+    document.addEventListener('DOMContentLoaded', function() {
+      const blogList = document.getElementById('blog-list');
+      const loading = document.getElementById('loading');
+      const emptyState = document.getElementById('empty-state');
+      
+      // Utility function to format blog titles
+      function formatTitle(fileName) {
+        return fileName
+          .replace('.html', '')
+          .replace(/-/g, ' ')
+          .replace(/\b\w/g, l => l.toUpperCase());
+      }
+      
+      // Utility function to generate meta description from filename
+      function generateDescription(fileName) {
+        const title = formatTitle(fileName);
+        return `Read "${title}" on Naraway Blog. Discover insights and stories from our community.`;
+      }
+      
+      // Function to get publication date (you can enhance this)
+      function getPublicationDate() {
+        return new Date().toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+      }
+      
+      // Create blog card with enhanced SEO and accessibility
+      function createBlogCard(file, index) {
+        const fileName = file.replace('.html', '');
+        const title = formatTitle(fileName);
+        const description = generateDescription(fileName);
+        const pubDate = getPublicationDate();
+        
+        const card = document.createElement('article');
+        card.className = 'blog-card';
+        card.style.animationDelay = `${index * 0.1}s`;
+        
+        card.innerHTML = `
+          <div class="blog-header">
+            <h3 class="blog-title">
+              <a href="blogs/${file}" aria-describedby="desc-${fileName}">
+                ${title}
+              </a>
+            </h3>
+            <div class="blog-meta">
+              <time datetime="${new Date().toISOString()}">${pubDate}</time>
+              <span class="blog-tag">Blog</span>
+            </div>
+          </div>
+          <div class="blog-content">
+            <div class="blog-preview" role="img" aria-label="Preview of ${title}">
+              <iframe 
+                src="blogs/${file}" 
+                loading="lazy"
+                title="Preview of ${title}"
+                sandbox="allow-same-origin"
+              ></iframe>
+            </div>
+            <a href="blogs/${file}" class="read-more" aria-label="Read full article: ${title}">
+              Read More
+            </a>
+            <p id="desc-${fileName}" class="sr-only">${description}</p>
+          </div>
+        `;
+        
+        return card;
+      }
+      
+      // Load blogs with enhanced error handling
+      fetch('blogs/blogindex.json')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(files => {
+          loading.style.display = 'none';
+          
+          if (!files || files.length === 0) {
+            emptyState.style.display = 'block';
+            return;
+          }
+          
+          // Create and append blog cards
+          files.forEach((file, index) => {
+            const card = createBlogCard(file, index);
+            blogList.appendChild(card);
+          });
+          
+          blogList.style.display = 'grid';
+          
+          // Add structured data for each blog post
+          const structuredData = {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "itemListElement": files.map((file, index) => ({
+              "@type": "ListItem",
+              "position": index + 1,
+              "item": {
+                "@type": "BlogPosting",
+                "headline": formatTitle(file.replace('.html', '')),
+                "url": `https://naraway.com/blogs/${file}`,
+                "datePublished": new Date().toISOString(),
+                "author": {
+                  "@type": "Organization",
+                  "name": "Naraway"
+                },
+                "publisher": {
+                  "@type": "Organization",
+                  "name": "Naraway",
+                  "url": "https://naraway.com"
+                }
+              }
+            }))
+          };
+          
+          const script = document.createElement('script');
+          script.type = 'application/ld+json';
+          script.textContent = JSON.stringify(structuredData);
+          document.head.appendChild(script);
+        })
+        .catch(error => {
+          console.error('Error loading blogs:', error);
+          loading.style.display = 'none';
+          emptyState.style.display = 'block';
+          emptyState.innerHTML = `
+            <h3>Unable to load posts</h3>
+            <p>We're experiencing technical difficulties. Please try again later.</p>
+          `;
+        });
+    });
+    
+    // Add smooth scroll behavior for better UX
+    document.documentElement.style.scrollBehavior = 'smooth';
+    
+    // Performance optimization: Intersection Observer for animations
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      // Observe blog cards when they're created
+      const observeCards = () => {
+        document.querySelectorAll('.blog-card').forEach(card => {
+          observer.observe(card);
+        });
+      };
+      
+      // Call after DOM is loaded
+      setTimeout(observeCards, 1000);
+    }
+  </script>
+  
+  <!-- Screen reader only styles -->
+  <style>
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!-- blog.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Naraway Blog</title>
+</head>
+<body>
+  <h1>Latest Blogs</h1>
+  <div id="blog-list"></div>
+
+  <script>
+    fetch('blogs/blogindex.json') // the file listing blogs
+      .then(res => res.json())
+      .then(files => {
+        const container = document.getElementById('blog-list');
+        files.forEach(file => {
+          const fileName = file.replace('.html', '');
+          const card = document.createElement('div');
+          card.innerHTML = `
+            <h2><a href="blogs/${file}">${fileName.replace(/-/g, ' ')}</a></h2>
+            <iframe src="blogs/${file}" width="100%" height="100" style="border:none;" loading="lazy"></iframe>
+            <hr/>
+          `;
+          container.appendChild(card);
+        });
+      });
+  </script>
+</body>
+</html>
