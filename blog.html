@@ -536,7 +536,7 @@
       }
       
       // Load blogs with enhanced error handling
-      fetch('blogs/blogindex.json')
+      fetch('Blogs/blogindex.json')
         .then(response => {
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -569,7 +569,7 @@
               "item": {
                 "@type": "BlogPosting",
                 "headline": formatTitle(file.replace('.html', '')),
-                "url": `https://naraway.com/blogs/${file}`,
+                "url": `https://naraway.com/Blogs/${file}`,
                 "datePublished": new Date().toISOString(),
                 "author": {
                   "@type": "Organization",
